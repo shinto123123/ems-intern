@@ -100,13 +100,18 @@ body{background:#0b1437;display:flex;flex-direction:column;height:100vh;overflow
 .progress-radial{position:relative;width:110px;height:110px;flex-shrink:0;}
 .progress-radial svg{width:110px;height:110px;transform:rotate(-90deg);}
 .radial-bg{fill:none;stroke:#0b1437;stroke-width:8;}
-.radial-fill{fill:none;stroke:#4299e1;stroke-width:8;stroke-linecap:round;}
+
+/* Multi-segmented circle fills matching the legend colors */
+.radial-fill-completed{fill:none;stroke:#4299e1;stroke-width:5;}
+.radial-fill-progress{fill:none;stroke:#fbbf24;stroke-width:5;}
+.radial-fill-notstart{fill:none;stroke:#4a5568;stroke-width:5;}
+
 .radial-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;}
 .radial-text h2{font-size:18px;color:#fff;font-weight:700;}
 .radial-text span{font-size:10px;color:#8898aa;}
 
 .progress-legend-list{display:flex;flex-direction:column;gap:8px;}
-.legend-item{display:flex;align-items:center;justify-content:space-between;width:140px;font-size:12px;}
+.legend-item{display:flex;align-items:center;justify-content:space-between;width:160px;font-size:12px;}
 .legend-lbl-group{display:flex;align-items:center;gap:8px;color:#cbd5e1;}
 .legend-dot{width:8px;height:8px;border-radius:50%;}
 .legend-dot.completed{background:#4299e1;}
@@ -190,7 +195,7 @@ body{background:#0b1437;display:flex;flex-direction:column;height:100vh;overflow
     <div class="content">
 
       <div class="page-header">
-        <h1>Internship Dashboard</h1>
+        <h1>Dashboard</h1>
       </div>
 
       <div class="top-widgets-grid">
@@ -363,7 +368,12 @@ body{background:#0b1437;display:flex;flex-direction:column;height:100vh;overflow
             <div class="progress-radial">
               <svg viewBox="0 0 36 36">
                 <circle class="radial-bg" cx="18" cy="18" r="15.9"/>
-                <circle class="radial-fill" cx="18" cy="18" r="15.9" stroke-dasharray="75 25"/>
+                
+                <circle class="radial-fill-completed" cx="18" cy="18" r="15.9" stroke-dasharray="75 100" stroke-dashoffset="0"/>
+                
+                <circle class="radial-fill-progress" cx="18" cy="18" r="15.9" stroke-dasharray="20 100" stroke-dashoffset="-75"/>
+                
+                <circle class="radial-fill-notstart" cx="18" cy="18" r="15.9" stroke-dasharray="5 100" stroke-dashoffset="-95"/>
               </svg>
               <div class="radial-text">
                 <h2>75%</h2>
@@ -395,7 +405,7 @@ body{background:#0b1437;display:flex;flex-direction:column;height:100vh;overflow
         <div class="feedback-left-content">
           <div class="feedback-icon-box"><i class="fa-regular fa-comment-dots"></i></div>
           <div class="feedback-quote">
-            <blockquote>"Good progress on the project. Keep up the quality of your work."</blockquote>
+            blockquote>"Good progress on the project. Keep up the quality of your work."</blockquote>
             <span>— David Brown, 3 days ago</span>
           </div>
         </div>
